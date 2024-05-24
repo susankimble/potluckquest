@@ -42,7 +42,7 @@ const updateGuestCount = function(){
     if (guests.length === 8){
         addGuestButton.classList.add("hide");
         guestInput.classList.add("hide");
-        guestInputLabel.add("hide");
+        guestInputLabel.classList.add("hide");
         guestFull.classList.remove("hide");
     }
 
@@ -63,18 +63,21 @@ const assignItems = function(){
         "chicken"
     ];
 }
-const allGuests = document.querySelectorAll(".guest-list li")
+const allGuests = document.querySelectorAll(".guest-list li");
 
 
 for (let guest of allGuests){
     let randomPotluckIndex = Math.floor(Math.random() * potluckItems.length);
     let randomPotluckItem = potluckItems [randomPotluckIndex];
     
+    
     let listItem = document.createElement("li");
     listItem.innerText = `${guest.innerText} is bringing ${randomPotluckItem}.`;
     assignedItems.append(listItem); 
+    potluckItems.splice(randomPotluckIndex, 1)
 }
 assignButton.addEventListener("click", function () {
 
 assignItems();
+assignButton.disabled = true;
    });
