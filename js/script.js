@@ -62,7 +62,7 @@ const assignItems = function(){
         "salad",
         "chicken"
     ];
-}
+
 const allGuests = document.querySelectorAll(".guest-list li");
 
 
@@ -75,6 +75,7 @@ for (let guest of allGuests){
     listItem.innerText = `${guest.innerText} is bringing ${randomPotluckItem}.`;
     assignedItems.append(listItem); 
     potluckItems.splice(randomPotluckIndex, 1)
+}
 }
 assignButton.addEventListener("click", function () {
 
